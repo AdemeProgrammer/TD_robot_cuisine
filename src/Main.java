@@ -1,25 +1,26 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner clavier = new Scanner(System.in);
-        System.out.println("Que voulez vous faire : ");
-        System.out.println("1 - Voir les ingrédients");
-        System.out.println("2 - Ajouter un ingrédient");
-        int choix = clavier.nextInt();
-        if (choix == 2) {
             System.out.println("Saisissez le nom de l'ingrédient");
-            String nomIngredient = clavier.next();
+            String nom = clavier.next();
             System.out.println("Saisissez la quantité de l'ingrédient");
-            int quantiteIngredient = clavier.nextInt();
+            int quantite = clavier.nextInt();
             System.out.println("Saisissez l'unité de l'ingrédient");
-            String uniteIngredient = clavier.next();
-            new Ingrédient(nomIngredient, quantiteIngredient, uniteIngredient);
-            Ingrédient monIngrédient = new Ingrédient(nomIngredient, quantiteIngredient, uniteIngredient);
-        }
-        else if (choix == 1) {
-            System.out.println("Voici les ingrédients :");
+            String unite = clavier.next();
+            new Ingrédient(nom, quantite, unite);
+            Ingrédient monIngrédient = new Ingrédient(nom, quantite, unite);
+            System.out.println("Quantité de l'ingrédient : "+monIngrédient.getQuantite());
+            System.out.println("Unité de l'ingrédient : "+monIngrédient.getUnite());
+            System.out.println("Nom de l'ingrédient : "+monIngrédient.getNom());
+
+            System.out.println("Entrez une nouvelle quantité");
+            int nouvelleQuantite = clavier.nextInt();
+
+            monIngrédient.setQuantite(nouvelleQuantite);
+            System.out.println(monIngrédient.afficher());
         }
 
     }
-}
